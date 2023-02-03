@@ -1,21 +1,19 @@
-NAME					=		phonebook
+NAME					=		megaphone
 
-SRCS					=		main.cpp \
-								phonebook.cpp \
-								contact.cpp \
+SRCS					=		megaphone.cpp \
 
-OBJS 		= ${SRCS:.c=.o}
+OBJS		= ${SRCS:.cpp=.o}
 
-CC 			= c++
+CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -f
 
 all: 		${NAME}
 
-.c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+.cpp.o:
+			${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
 
-$(NAME): 	$(OBJS)
+$(NAME):	$(OBJS)
 			${CC} $(CFLAGS) -o $(NAME) $(OBJS) $(FLAGS)
 
 clean:
