@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 #include <cstdlib>
 #include "phonebook.hpp"
 
@@ -21,6 +22,8 @@ static int add(std::string &input)
     while (1)
     {
         getline(std::cin, input);
+        if(std::cin.eof())
+            exit(0);
         if (input.empty())
             std::cout << "Empty sentence, please, try again." << std::endl;
         else
@@ -32,17 +35,20 @@ static void search(Contact contact, int i)
 {
     std::string str;
     (void)contact;
-    str = i ;
-    std::cout << std::right << i;
-    std::cout << " | " ;
+    str = i;
+    // if (i == 0)
+    //     std::cout << std::setw(10) << std::right << "1";
+    // else
+        std::cout << std::setw(10) << std::right << i;
+    std::cout << "| " ;
     str = contact.get_first_name();
-    std::cout << std::right << ft_substr_point(str);
-    std::cout << " | " ;
+    std::cout << std::setw(10) << std::right << ft_substr_point(str);
+    std::cout << "| " ;
     str = contact.get_last_name();
-    std::cout << std::right << ft_substr_point(str);
-    std::cout << " | " ;
+    std::cout << std::setw(10) << std::right << ft_substr_point(str);
+    std::cout << "| " ;
     str = contact.get_nickname();
-    std::cout << std::left << ft_substr_point(str) << std::endl ;
+    std::cout << std::setw(10) << std::right << ft_substr_point(str) << std::endl ;
 }
 
 int Phonebook::add_contact()
@@ -79,21 +85,23 @@ int Phonebook::search_contact()
     std::string input;
     int i;
     int j;
+    j = 0;
 
     std::cout << "---------------------------------------- " << std::endl ;
-    std::cout << "Index ";
+    std::cout << std::setw(10) << "Index";
     std::cout << "| ";
-    std::cout << "First name ";
+    std::cout << std::setw(10) << "First name";
     std::cout << "| ";
-    std::cout << "Last name ";
+    std::cout << std::setw(10) << "Last name";
     std::cout << "| ";
-    std::cout << "Nickname " << std::endl;
-    for (j = 0; j < 8; j++)
+    std::cout << std::setw(10) << "Nickname" << std::endl;
+    while (j < 8)
     {
-        if (this->people[j].get_first_name().empty() == false)
-        {
+       // if (this->people[j].get_first_name().empty() == false)
+      //  {
             search(this->people[j], j);
-        }
+       // }
+        j++;
     }
     std::cout << "Hey user ! Wanna know about someone ? Enter his index !" << std::endl;
     i = 0;
@@ -104,6 +112,10 @@ int Phonebook::search_contact()
             std::cout << "I don't understand. Please write a valid index." << std::endl;
         else if (atoi(input.c_str()) < 0 || atoi(input.c_str()) > 8 || atoi(input.c_str()) == 0)
             std::cout << "I don't understand. Please write a valid index." << std::endl;
+        // else if ()
+        // {
+
+        // }
         else
             break ;
     }

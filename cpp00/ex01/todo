@@ -1,7 +1,8 @@
--> ADD + ctrl c = boucle infinie
--> 10 caracteres de long
--> justifie a droite
--> atoi
+DONE -> ADD + ctrl c = boucle infinie
+DONE -> 10 caracteres de long
+DONE -> justifie a droite
+DONE -> atoi
+-> nouveau contact supprime lancien....
 
 // #include <iostream>
 // #include <cstring>
