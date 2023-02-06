@@ -1,7 +1,8 @@
-NAME					=		zombiehorde
+NAME					=		fight
 
-SRCS					=		Zombie.cpp \
-								zombieHorde.cpp \
+SRCS					=		Weapon.cpp \
+								HumanA.cpp \
+								HumanB.cpp \
 								main.cpp \
 
 OBJS		= ${SRCS:.cpp=.o}

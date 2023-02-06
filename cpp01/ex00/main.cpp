@@ -8,6 +8,7 @@ int main()
 
     Zombie *heap_zombie;
     heap_zombie = newZombie("Stephan");
+    randomChump("Klaus");
     delete(heap_zombie);
     return (0);
 }

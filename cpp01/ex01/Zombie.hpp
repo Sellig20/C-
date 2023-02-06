@@ -4,20 +4,20 @@
 #ifndef ZOMBIE_H
 #define ZOMBIE_H
 
-class Zombie 
+class Zombie
 {
     public :
         Zombie();
         ~Zombie();
 
-        void announce(void);
+        void announce();
         void init_name(std::string name);
-
+    
     private :
-        std::string zombieName;    
+        std::string zombieName;
 };
 
-Zombie *newZombie(std::string name);
-void randomChump(std::string name);
+Zombie *zombieHorde(int N, std::string name);
 
 #endif
+

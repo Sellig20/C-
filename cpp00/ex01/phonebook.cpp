@@ -4,7 +4,10 @@
 #include <cstdlib>
 #include "phonebook.hpp"
 
-Phonebook::Phonebook() { this->index = 0; }
+Phonebook::Phonebook() 
+{ 
+    this->index = 0; 
+}
 
 Phonebook::~Phonebook() {}
 
@@ -36,10 +39,8 @@ static void search(Contact contact, int i)
     std::string str;
     (void)contact;
     str = i;
-    // if (i == 0)
-    //     std::cout << std::setw(10) << std::right << "1";
-    // else
-        std::cout << std::setw(10) << std::right << i;
+
+    std::cout << std::setw(10) << std::right << i;
     std::cout << "| " ;
     str = contact.get_first_name();
     std::cout << std::setw(10) << std::right << ft_substr_point(str);
@@ -77,6 +78,7 @@ int Phonebook::add_contact()
     tmp.set_darkest_secret(input);
 
     this->people[this->index] = tmp;
+    this->index = (this->index + 1) % 8;
     return (0);
 }
 
@@ -97,28 +99,31 @@ int Phonebook::search_contact()
     std::cout << std::setw(10) << "Nickname" << std::endl;
     while (j < 8)
     {
-       // if (this->people[j].get_first_name().empty() == false)
-      //  {
+       if (this->people[j].get_first_name().empty() == false)
+        {
             search(this->people[j], j);
-       // }
+        }
         j++;
     }
-    std::cout << "Hey user ! Wanna know about someone ? Enter his index !" << std::endl;
     i = 0;
-    while (1)
-    {
-        getline(std::cin, input);
-        if (input.empty())
-            std::cout << "I don't understand. Please write a valid index." << std::endl;
-        else if (atoi(input.c_str()) < 0 || atoi(input.c_str()) > 8 || atoi(input.c_str()) == 0)
-            std::cout << "I don't understand. Please write a valid index." << std::endl;
-        // else if ()
-        // {
-
-        // }
-        else
-            break ;
-    }
+    std::cout << "Hey user ! Wanna know about someone ? Enter his index !" << std::endl;
+    // while (1)
+    // {
+    //     getline(std::cin, input);
+    //     if (input.empty())
+    //         std::cout << "I don't understand. Please write a valid index." << std::endl;
+    //     // else
+    //     // {
+    //          i = input[0] - 48;
+    //         if (atoi(input.c_str()) < 0 || atoi(input.c_str()) > 7)
+    //             std::cout << "I don't understand. Please write a valid index." << std::endl;
+    //         else if (this->people[i].get_first_name().empty())
+    //             std::cout << " Not existing ! U sure you have friends ? :[";
+    //         else
+    //             break ;
+    //    // }
+    //}
+             std::cout << i <<std::endl;
     std::cout << "First name -> ";
     std::cout << this->people[i].get_first_name() << std::endl;
     std::cout << "Last name -> ";

@@ -2,7 +2,8 @@ DONE -> ADD + ctrl c = boucle infinie
 DONE -> 10 caracteres de long
 DONE -> justifie a droite
 DONE -> atoi
--> nouveau contact supprime lancien....
+DONE -> nouveau contact supprime lancien....
+->afficher contact si nexiste pas ?
 
 // #include <iostream>
 // #include <cstring>
