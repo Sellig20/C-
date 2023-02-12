@@ -4,7 +4,7 @@
 #ifndef ZOMBIE_H
 #define ZOMBIE_H
 
-class Zombie 
+class Zombie
 {
     public :
         Zombie();
@@ -14,7 +14,7 @@ class Zombie
         void init_name(std::string name);
 
     private :
-        std::string zombieName;    
+        std::string zombieName;
 };
 
 Zombie *newZombie(std::string name);

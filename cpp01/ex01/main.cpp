@@ -3,5 +3,5 @@
 int main()
 {
     Zombie *horde = zombieHorde(14, "Caroline");
-    delete horde;
+    delete[] horde;
 }

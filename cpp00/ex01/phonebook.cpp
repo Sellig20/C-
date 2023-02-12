@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jecolmou <jecolmou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/06 19:13:39 by jecolmou          #+#    #+#             */
+/*   Updated: 2023/02/08 16:54:46 by jecolmou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <cstring>
 #include <iomanip>
 #include <cstdlib>
 #include "phonebook.hpp"
 
-Phonebook::Phonebook() 
-{ 
-    this->index = 0; 
+Phonebook::Phonebook()
+{
+    this->index = 0;
 }
 
 Phonebook::~Phonebook() {}
@@ -106,33 +118,38 @@ int Phonebook::search_contact()
         j++;
     }
     i = 0;
-    std::cout << "Hey user ! Wanna know about someone ? Enter his index !" << std::endl;
-    // while (1)
-    // {
-    //     getline(std::cin, input);
-    //     if (input.empty())
-    //         std::cout << "I don't understand. Please write a valid index." << std::endl;
-    //     // else
-    //     // {
-    //          i = input[0] - 48;
-    //         if (atoi(input.c_str()) < 0 || atoi(input.c_str()) > 7)
-    //             std::cout << "I don't understand. Please write a valid index." << std::endl;
-    //         else if (this->people[i].get_first_name().empty())
-    //             std::cout << " Not existing ! U sure you have friends ? :[";
-    //         else
-    //             break ;
-    //    // }
-    //}
-             std::cout << i <<std::endl;
-    std::cout << "First name -> ";
-    std::cout << this->people[i].get_first_name() << std::endl;
-    std::cout << "Last name -> ";
-    std::cout << this->people[i].get_last_name() << std::endl;
-    std::cout << "Nickname -> ";
-    std::cout << this->people[i].get_nickname() << std::endl;
-    std::cout << "Phone number -> " ;
-    std::cout << this->people[i].get_phone_number() << std::endl;
-    std::cout << "Darkeste little secret -> " ;
-    std::cout << this->people[i].get_darkest_secret() << std::endl;
+    if (!(this->people[0].get_first_name().empty()))
+    {
+        std::cout << "Hey user ! Wanna know about someone ? Enter his index !" << std::endl;
+        while (1)
+        {
+            getline(std::cin, input);
+            if(std::cin.eof())
+                exit(0);
+            if (input.empty())
+                std::cout << "I don't understand. Please write a valid index." << std::endl;
+            i = input[0] - 48;
+            if (!(input[0] >= '0' && input[0] <= '9'))
+                std::cout << "I don't understand. Please write a valid index." << std::endl;
+            else if (atoi(input.c_str()) < 0 || atoi(input.c_str()) > 7)
+                std::cout << "I don't understand. Please write a valid index." << std::endl;
+            else if (this->people[i].get_first_name().empty())
+                std::cout << "Not existing ! U sure you have friends ? :[" << std::endl;
+            else
+                break ;
+        }
+        std::cout << "First name -> ";
+        std::cout << this->people[i].get_first_name() << std::endl;
+        std::cout << "Last name -> ";
+        std::cout << this->people[i].get_last_name() << std::endl;
+        std::cout << "Nickname -> ";
+        std::cout << this->people[i].get_nickname() << std::endl;
+        std::cout << "Phone number -> " ;
+        std::cout << this->people[i].get_phone_number() << std::endl;
+        std::cout << "Darkest little secret -> " ;
+        std::cout << this->people[i].get_darkest_secret() << std::endl;
+    }
+    else
+        std::cout << "Add someone before searching ! ;)" << std::endl;
     return (0);
 }
