@@ -8,7 +8,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(const Fixed &src)
 {
-    std::cout << "Constructor de recopie called" << std::endl;
+    std::cout << "Copied Constructor called" << std::endl;
     *this = src;
 }
 
@@ -19,7 +19,7 @@ Fixed::~Fixed()
 
 Fixed & Fixed::operator=(const Fixed &src)
 {
-    std::cout << "Operator de recopie called" << std::endl;
+    std::cout << "Copied Operator called" << std::endl;
     this->nb_bits = src.getRawBits();
     return (*this);
 }

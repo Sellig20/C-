@@ -24,10 +24,29 @@ const std::string &ClapTrap::getName() const
     return (this->namePriv);
 }
 
+int     ClapTrap::getHitPoint() const
+{
+    return (hitPoints);
+}
+
+int		ClapTrap::getEnergyPoint() const
+{
+    return (energyPoints);
+}
+
+int		ClapTrap::getAttackDamage() const
+{
+    return (attackDamages);
+}
+
 ClapTrap & ClapTrap::operator=(const ClapTrap &src)
 {
     std::cout << "------Copied Operator called------ " << std::endl;
     std::cout << "copie" << src << std::endl;
+    hitPoints = src.getHitPoint();
+    energyPoints = src.getEnergyPoint();
+    attackDamages = src.getAttackDamage();
+
     return (*this); // parce que retourne TOUTE la source qu'il a copié
 }
 
@@ -39,33 +58,34 @@ std::ostream & operator<<(std::ostream & o, ClapTrap const & src)
 
 void    ClapTrap::attack(const std::string &target)
 {
-    std::cout << "ClapTrap " << this->namePriv << " attacks " << target << " causing " << this->attackDamages << " hit points !" << std::endl;
+    if (this->hitPoints < 0 || this->energyPoints < 0)
+    {
+        std::cout << "ClapTrap " << this->namePriv << " doesn't have any energy points left.... :(" << std::endl;
+        return ;
+    }
+    this->energyPoints = (this->energyPoints - 1);
+    std::cout << "ClapTrap " << this->namePriv << " attacks " << target << " causing " << this->attackDamages << " of damages !" << std::endl;
 }
 
 void    ClapTrap::takeDamage(unsigned int amount)
 {
+    this->attackDamages = (this->attackDamages - amount);
     if (amount > (unsigned)hitPoints)
     {
         std::cout << "Impossible main arguments. Limit is at 10, please respect tha laws' game." << std::endl;
-        exit(0);
+        return ;
     }
-    this->energyPoints = (this->energyPoints - amount);
-    if (this->energyPoints < 0)
-    {
-        std::cout << "ClapTrap " << this->namePriv << " is in an concerning situation because of" << amount << " damages he took in the chest" << std::endl;
-    }
-    else if (this->energyPoints == 0)
-    {
-        std::cout << "ClapTrap " << this->namePriv << " is already dead ! Have some dignity and let it be!" << std::endl;
-    }
-    else
-    {
-        std::cout << "ClapTrap " << this->namePriv << " took " << amount << " hit points" << std::endl;
-    }
+    std::cout << "ClapTrap " << this->namePriv << " took " << amount << " damages" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    this->energyPoints = (this->energyPoints + amount);
-    std::cout << "ClapTrap " << this->namePriv << " got " << amount << " energy points so it's fine. Player has " << this->energyPoints << " now and is ready to FIGHT AGAIN" << std::endl;
+    if (this->hitPoints < 0 || this->energyPoints < 0)
+    {
+        std::cout << "ClapTrap " << this->namePriv << " doesn't have any energy points left.... :(" << std::endl;
+        return ;
+    }
+    this->energyPoints = (this->energyPoints - 1);
+    this->hitPoints = (this->hitPoints + amount);
+    std::cout << "ClapTrap " << this->namePriv << " got " << amount << " energy points so it's fine. ClapTrap" << this->namePriv << " has " << this->energyPoints << " now and is ready to FIGHT AGAIN" << std::endl;
 }

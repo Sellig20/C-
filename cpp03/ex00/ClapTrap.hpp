@@ -11,7 +11,7 @@
 class ClapTrap
 {
 	public :
-		ClapTrap(std::string name);
+		ClapTrap(std::string name = NULL);
 		ClapTrap(ClapTrap const &src); //constructeur de recopie
 		~ClapTrap();
 		ClapTrap & operator=(const ClapTrap &src);
@@ -20,7 +20,10 @@ class ClapTrap
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 
-		const std::string &getName() const;
+		const std::string 	&getName() const;
+		int					getHitPoint() const;
+		int					getEnergyPoint() const;
+		int					getAttackDamage() const;
 
 	private :
 		std::string namePriv;

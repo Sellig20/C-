@@ -1,12 +1,17 @@
-NAME					=		canon
+NAME					=		brain
 
 SRCS					=		main.cpp \
-								Fixed.cpp \
+								Animal.cpp \
+								Dog.cpp \
+								Cat.cpp \
+								WrongAnimal.cpp \
+								WrongCat.cpp \
+								Brain.cpp \
 
 OBJS		= ${SRCS:.cpp=.o}
 
 CC			= c++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g3
+CFLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -f
 
 all: 		${NAME}
