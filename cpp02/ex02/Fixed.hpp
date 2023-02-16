@@ -12,7 +12,7 @@ class Fixed
 {
     public :
         Fixed();
-        Fixed (const Fixed &src); //constructeur de recopie
+        Fixed(const Fixed &src); //constructeur de recopie
         Fixed(const int convert);
         Fixed(const float float_convert);
         ~Fixed();
