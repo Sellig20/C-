@@ -28,7 +28,6 @@ Form	*Intern::makeForm(std::string formName, std::string formTarget)
 {
 	std::string tab[] = {"robotomy request", "presidential pardon", "shrubbery creation"};
 	int	i(-1);
-
 	while (++i < 3)
 	{
 		if (!formName.compare(tab[i]))

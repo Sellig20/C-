@@ -2,7 +2,7 @@
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialCertificate", 25, 5), target("")
+PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialCertificate", 25, 5), target("RandomTarget")
 {
 	std::cout << "------Default PRESIDENTIAL Constructor called------------" << std::endl;
 }
@@ -10,14 +10,12 @@ PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialCertificate
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialCertificate", 25, 5), target(target)
 {
 	std::cout << "------Target PRESIDENTIAL Constructor called---------------" << std::endl;
-
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src)
 {
 	std::cout << "------Default Copied PRESIDENTIAL Constructor called-------" << std::endl;
 	(*this = src);
-
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
@@ -33,7 +31,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPar
     return (*this);
 }
 
-void	PresidentialPardonForm::execute(Bureaucrat const &executor)
+void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (!isSigned)
 		throw (Form::IsNotSignedException());
@@ -41,5 +39,5 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor)
 		throw (Form::GradeTooLowException());
 	if (executor.getGrade() > executeGrade)
 		throw (GradeTooLowException());
-	std::cout << target << "has been pardonned by Zaphod Beeblebrox" << std::endl;
+	std::cout << target << " has been pardonned by Zaphod Beeblebrox" << std::endl;
 }

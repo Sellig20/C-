@@ -8,6 +8,7 @@
 int main()
 {
 	std::cout << "-------CREATING BUREAUCRATS-------" << std::endl;
+	std::cout << std::endl;
 	Bureaucrat Murphy("Murphy", 25);
 	std::cout << Murphy;
 	Bureaucrat Doc("Doc", 2);
@@ -16,6 +17,7 @@ int main()
 	std::cout << Roberta;
 	std::cout << std::endl;
 	std::cout << "--------INTERNS MAKE FORMS--------" << std::endl;
+	std::cout << std::endl;
 	Intern	someRandomIntern;
 	Form	*roboty;
 	Form	*shrubb;
@@ -34,6 +36,7 @@ int main()
 	}
 	std::cout << std::endl;
 	std::cout << "-------SIGN & EXECUTE Presidential------" << std::endl;
+	std::cout << std::endl;
 	Doc.executeForm(*president);
 	Doc.signForm(*president);
 	std::cout << *president;
@@ -41,6 +44,7 @@ int main()
 	std::cout << std::endl;
 	std::cout << std::endl;
 	std::cout << "-------SIGN & EXECUTE Shrubbery--------" << std::endl;
+	std::cout << std::endl;
 	Murphy.executeForm(*shrubb);
 	Murphy.signForm(*shrubb);
 	std::cout << *shrubb;
@@ -48,6 +52,7 @@ int main()
 	std::cout << std::endl;
 	std::cout << std::endl;
 	std::cout << "--------SIGN & EXECUTE Robotomy---------" << std::endl;
+	std::cout << std::endl;
 	Roberta.executeForm(*roboty);
 	Roberta.signForm(*roboty);
 	std::cout << *roboty;

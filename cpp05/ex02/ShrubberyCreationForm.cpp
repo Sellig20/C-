@@ -32,7 +32,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreation
     return (*this);
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const &executor)
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	std::ofstream outfile;
 	std::string str;
@@ -46,5 +46,26 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor)
 	outfile.open(str.c_str());
 	if (!outfile.is_open())
 		throw CannotCreateFileException();
-	outfile <<  "___    ___\n( _<    >_ )\n//        \\\\n\\___..___//\\n `-(    )-'\n   _|__|_\n  /_|__|_\\n  /_|__|_\\n  /_\\__/_\\n   \\ || /  _)\n     ||   ( )\n     \\___//\n      `---'\n";
+	outfile <<  "                       " << std::endl << "\
+                |||| " << std::endl << "\
+                |||| " << std::endl << "\
+                |||| /| " << std::endl << "\
+           /|  |||| ||| " << std::endl << "\
+           |||  |||| ||| " << std::endl << "\
+           |||  |||| ||| " << std::endl << "\
+           |||  |||| d|| " << std::endl << "\
+           |||  |||||||/ " << std::endl << "\
+           ||b._||||~~ " << std::endl << "\
+            ||||||| " << std::endl << "\
+            `~~~|||| " << std::endl << "\
+                ||||  " << std::endl << "\
+                ||||  " << std::endl << "\
+~~~~~~~~~~~~~~~~||||~~~~~~~~~~~~~~ " << std::endl << "\
+  ||..__..--  . ||||   .  .. " << std::endl << "\
+.....____________________       " << std::endl << "\
+        .  ||              ||    ." << std::endl << "\
+. ||             .   ||     . " << std::endl << "\
+   __...--..__..__       .     || " << std::endl << "\
+||  .   .    ||     ||    __..--..  "<< std::endl;
+outfile.close();
 }

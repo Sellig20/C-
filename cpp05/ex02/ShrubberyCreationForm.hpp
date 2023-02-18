@@ -16,7 +16,7 @@ class ShrubberyCreationForm : public Form
 
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm & src);
 
-		void	execute(Bureaucrat const &executor);
+		void	execute(Bureaucrat const &executor) const;
 
 		class CannotCreateFileException : public std::exception
 		{

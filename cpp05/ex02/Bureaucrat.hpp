@@ -21,6 +21,7 @@ class Bureaucrat
         void        incrementGrade();
         void        decrementGrade();
         void        signForm(Form& f);
+        void        execute(Bureaucrat const &executor) const;
         void        executeForm(Form const &form) const;
 
         //Exceptions are implemented in the Mother Class

@@ -56,14 +56,21 @@ void    test4(void)
         Bureaucrat Scorpio("Scorpio", 26);
         ShrubberyCreationForm ASCIITree;
 
-        std::cout << Scorpio << std::cout << std::endl;
-        std::cout << ASCIITree << std::cout << std::endl;
-        Scorpio.executeForm(ASCIITree);
+        // Scorpio.executeForm(ASCIITree);
+        // std::cout << std::endl;
+        // Scorpio.signForm(ASCIITree);
+        // std::cout << std::endl;
+        // Scorpio.executeForm(ASCIITree);
         std::cout << std::endl;
-        Scorpio.signForm(ASCIITree);
-        std::cout << std::endl;
-        Scorpio.executeForm(ASCIITree);
-        std::cout << std::endl;
+        try
+        {
+            ASCIITree.beSigned(Scorpio);
+            Scorpio.executeForm(ASCIITree);
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << e.what() << std::endl;
+        }
     }
     std::cout << std::endl;
 }
@@ -75,14 +82,12 @@ void    test5(void)
         Bureaucrat Mecano("Mecano", 10);
         RobotomyRequestForm Robotox;
 
-        // std::cout << Mecano << std::cout << std::endl;
-        // std::cout << Robotox << std::cout << std::endl;
         // Mecano.executeForm(Robotox);
         // std::cout << std::endl;
         // Mecano.signForm(Robotox);
         // std::cout << std::endl;
         // Mecano.executeForm(Robotox);
-        // std::cout << std::endl;
+        std::cout << std::endl;
         try
         {
             Robotox.beSigned(Mecano);
@@ -92,7 +97,6 @@ void    test5(void)
         {
             std::cout << e.what() << std::endl;
         }
-        
     }
     std::cout << std::endl;
 }
@@ -104,20 +108,22 @@ void    test6(void)
         Bureaucrat Pablo("Pablo", 1);
         PresidentialPardonForm Sicario1("Sicario1");
 
+        // std::cout << std::endl;
+        // Pablo.executeForm(Sicario1);
+        // std::cout << std::endl;
+        // Pablo.signForm(Sicario1);
+        // std::cout << std::endl;
+        // Pablo.executeForm(Sicario1);
         std::cout << std::endl;
-        std::cout << Pablo << std::cout << std::endl;
-        std::cout << "huuuuurrrrruuuuu" << std::endl;
-        std::cout << "huuuuuwwwwwwwuuuuu" << std::endl;
-        std::cout << Sicario1 << std::cout << std::endl;
-        std::cout << "huuuuuuuuuu" << std::endl;
-        std::cout << "huuuuuuuuuuaaaa" << std::endl;
-        std::cout << std::endl;
-        Pablo.executeForm(Sicario1);
-        std::cout << std::endl;
-        Pablo.signForm(Sicario1);
-        std::cout << std::endl;
-        Pablo.executeForm(Sicario1);
-        std::cout << std::endl;
+        try
+        {
+            Sicario1.beSigned(Pablo);
+            Pablo.executeForm(Sicario1);
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << e.what() << std::endl;
+        }
     }
     std::cout << std::endl;
 }
@@ -138,7 +144,7 @@ int main()
     std::cout << std::endl;
     std::cout << "🔥 ----------------------- MANDATORY SHRUBBERY ------------------- 🔥" << std::endl;
     std::cout << std::endl;
-    //test4();
+    test4();
     std::cout << std::endl;
     std::cout << "🔥 ----------------------- MANDATORY ROBOTOMY ------------------- 🔥" << std::endl;
     std::cout << std::endl;
@@ -146,7 +152,7 @@ int main()
     std::cout << std::endl;
     std::cout << "🔥 ----------------------- MANDATORY PRESIDENT ------------------- 🔥" << std::endl;
     std::cout << std::endl;
-   // test6();
+    test6();
     std::cout << std::endl;
     
     return (0);

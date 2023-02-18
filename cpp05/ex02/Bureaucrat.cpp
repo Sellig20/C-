@@ -81,5 +81,8 @@ void        Bureaucrat::executeForm(Form const &form) const
     else if (form.getExecuteGrade() < grade)
         std::cout << name << " you are not allowed : rank too low !" << std::endl;
     else
+    {
+        form.execute(*this);
         std::cout << name << " executed " << form.getName() << std::endl;
+    }
 }

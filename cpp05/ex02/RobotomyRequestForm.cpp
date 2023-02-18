@@ -1,6 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : Form("MecanikCertificate", 72, 45), target("")
+RobotomyRequestForm::RobotomyRequestForm() : Form("MecanikCertificate", 72, 45), target("RandomTarget")
 {
 	std::cout << "------Default ROBOTOMY Constructor called---------" << std::endl;
 }
@@ -30,14 +30,13 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &
     return (*this);
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const &executor)
+void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	std::cout << "POOOOOOOOOOOO" << std::endl;
 	if (!isSigned)
 		throw (Form::IsNotSignedException());
 	if (executor.getGrade() > executeGrade)
 		throw (Form::GradeTooLowException());
-	std::cout << target << "zzzzzzzzzZZZZZzzzzzzZZZZZZZzzzzzzzzz" << std::endl;
+	std::cout << target << " zzzzzzzzzZZZZZzzzzzzZZZZZZZzzzzzzzzz" << std::endl;
 	srand(time(0));
 	unsigned int i = rand() % 2;
 	if (!i)
