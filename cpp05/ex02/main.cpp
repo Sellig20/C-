@@ -39,6 +39,7 @@ void    test3(void)
     std::cout << std::endl;
     {
         PresidentialPardonForm Sicario1;
+        std::cout << "AAAAAAAAAAA" << std::endl;
         PresidentialPardonForm Sicario2("Sicario2");
         PresidentialPardonForm Sicario3(Sicario2);
 

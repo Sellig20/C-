@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name(""), grade(150)
+Bureaucrat::Bureaucrat() : name("Unknown"), grade(150)
 {
     std::cout << "------Default BUREAUCRAT Constructor called-----------" << std::endl;
 }

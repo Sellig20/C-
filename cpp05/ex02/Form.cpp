@@ -66,11 +66,11 @@ int	Form::getExecuteGrade() const
 }
 std::ostream	&operator<<(std::ostream &o, Form const &src)
 {
+	        std::cout << "OOOOOOOOOOO" << std::endl;
 	o << "FORM = " << src.getName() << std::endl;
 	o << "IS_SIGNED = " << src.getIsSigned() << std::endl;
 	o << "SIGN_GRADE = " << src.getSignGrade() << std::endl;
 	o << "EXEC_GRADE " << src.getExecuteGrade() << std::endl;
-
 	return o;
 }
 

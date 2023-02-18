@@ -13,7 +13,7 @@ int main()
 	std::cout << Murphy;
 	Bureaucrat Doc("Doc", 2);
 	std::cout << Doc;
-	Bureaucrat Roberta("Roberta", 145);
+	Bureaucrat Roberta("Roberta", 1);
 	std::cout << Roberta;
 	std::cout << std::endl;
 	std::cout << "--------INTERNS MAKE FORMS--------" << std::endl;
@@ -24,7 +24,7 @@ int main()
 	Form	*president;
 	Form	*badForm;
 	roboty = someRandomIntern.makeForm("robotomy request", "Bender");
-	shrubb = someRandomIntern.makeForm("shrubbery creation", "garden");
+	shrubb = someRandomIntern.makeForm("shrubbery creation", "cactus");
 	president = someRandomIntern.makeForm("presidential pardon", "Fanny");
 	try
 	{
