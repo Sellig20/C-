@@ -2,7 +2,7 @@
 
 Form::Form() : name(""), isSigned(false), signGrade(150), executeGrade(150)
 {
-    std::cout << "------Default FORM Constructor called------" << std::endl;
+    std::cout << "------Default FORM Constructor called----------" << std::endl;
 }
 
 Form::Form(const std::string &name, const int signGrade, const int executeGrade) : name(name), isSigned(false), signGrade(signGrade), executeGrade(executeGrade)
@@ -20,13 +20,13 @@ Form::Form(const std::string &name, const int signGrade, const int executeGrade)
 
 Form::Form(const Form &src) : name(src.name), isSigned(src.isSigned), signGrade(src.signGrade), executeGrade(src.executeGrade)
 {
-    std::cout << "------Copy FORM Constructor called------" << std::endl;
+    std::cout << "------Copy FORM Constructor called-------------" << std::endl;
     (*this) = src;
 }
 
 Form::~Form()
 {
-    std::cout << "------Default FORM Desstructor called------" << std::endl;
+    std::cout << "------Default FORM Desstructor called----------" << std::endl;
 }
 
 Form &Form::operator=(const Form &src)
@@ -64,3 +64,13 @@ int	Form::getExecuteGrade() const
 {
 	return executeGrade;
 }
+std::ostream	&operator<<(std::ostream &o, Form const &src)
+{
+	o << "FORM = " << src.getName() << std::endl;
+	o << "IS_SIGNED = " << src.getIsSigned() << std::endl;
+	o << "SIGN_GRADE = " << src.getSignGrade() << std::endl;
+	o << "EXEC_GRADE " << src.getExecuteGrade() << std::endl;
+
+	return o;
+}
+

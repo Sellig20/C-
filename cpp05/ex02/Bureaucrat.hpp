@@ -3,9 +3,9 @@
 
 #include <stdexcept>
 #include <iostream>
-
 #include "Form.hpp"
 
+class Form;
 
 class Bureaucrat
 {
@@ -27,7 +27,7 @@ class Bureaucrat
         class GradeTooHighException : public std::exception
         {
             public :
-                virtual const char *what() const throw() // virtual pour beneficier les enfants de cette classe
+                virtual const char *what() const throw() // virtual pour faire beneficier les enfants de cette classe
                 {
                    return ("The grade is too high ...");
                 }

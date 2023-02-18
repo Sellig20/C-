@@ -1,19 +1,19 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : Form("Test", 72, 45), target("")
+RobotomyRequestForm::RobotomyRequestForm() : Form("MecanikCertificate", 72, 45), target("")
 {
-	std::cout << "------Default ROBOTOMY Constructor called------" << std::endl;
+	std::cout << "------Default ROBOTOMY Constructor called---------" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("Test", 72, 45), target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("MecanikCertificate", 72, 45), target(target)
 {
-	std::cout << "------Target ROBOTOMY Constructor called------" << std::endl;
+	std::cout << "------Target ROBOTOMY Constructor called----------" << std::endl;
 
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
 {
-	std::cout << "------Default Copied ROBOTOMY Constructor called------" << std::endl;
+	std::cout << "------Default Copied ROBOTOMY Constructor called---" << std::endl;
 	(*this = src);
 }
 
@@ -32,6 +32,7 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &
 
 void	RobotomyRequestForm::execute(Bureaucrat const &executor)
 {
+	std::cout << "POOOOOOOOOOOO" << std::endl;
 	if (!isSigned)
 		throw (Form::IsNotSignedException());
 	if (executor.getGrade() > executeGrade)

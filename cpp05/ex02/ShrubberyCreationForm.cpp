@@ -2,14 +2,14 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("Test", 145, 137), target("")
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("ASCIITreeCertificate", 145, 137), target("")
 {
-	std::cout << "------Default SHRUBBERY Constructor called------" << std::endl;
+	std::cout << "------Default SHRUBBERY Constructor called------------" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("Test", 145, 137), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("ASCIITreeCertificate", 145, 137), target(target)
 {
-	std::cout << "------Target SHRUBBERY Constructor called------" << std::endl;
+	std::cout << "------Target SHRUBBERY Constructor called--------------" << std::endl;
 
 }
 
@@ -21,7 +21,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src)
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "------Default SHRUBBERY Destructor called------" << std::endl;
+	std::cout << "------Default SHRUBBERY Destructor called--------------" << std::endl;
 
 }
 

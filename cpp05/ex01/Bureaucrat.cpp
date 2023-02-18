@@ -2,12 +2,12 @@
 
 Bureaucrat::Bureaucrat() : name(""), grade(150)
 {
-    std::cout << "------Default BUREAUCRAT Constructor called------" << std::endl;
+    std::cout << "------Default BUREAUCRAT Constructor called-----------" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade): name(name)
 {
-    std::cout << "------Name & grade BUREAUCRAT Constructor called------" << std::endl;
+    std::cout << "------Name & grade BUREAUCRAT Constructor called-------" << std::endl;
     if (grade < 1)
         throw ArgTooHighException();
     if (grade > 150)

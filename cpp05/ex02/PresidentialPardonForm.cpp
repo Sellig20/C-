@@ -2,20 +2,20 @@
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("Test", 25, 5), target("")
+PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialCertificate", 25, 5), target("")
 {
-	std::cout << "------Default PRESIDENTIAL Constructor called------" << std::endl;
+	std::cout << "------Default PRESIDENTIAL Constructor called------------" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("Test", 25, 5), target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialCertificate", 25, 5), target(target)
 {
-	std::cout << "------Target PRESIDENTIAL Constructor called------" << std::endl;
+	std::cout << "------Target PRESIDENTIAL Constructor called---------------" << std::endl;
 
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src)
 {
-	std::cout << "------Default Copied PRESIDENTIAL Constructor called------" << std::endl;
+	std::cout << "------Default Copied PRESIDENTIAL Constructor called-------" << std::endl;
 	(*this = src);
 
 }
@@ -40,6 +40,6 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor)
 	if (executor.getGrade() > executeGrade)
 		throw (Form::GradeTooLowException());
 	if (executor.getGrade() > executeGrade)
-		throw (GradeTooLowException);
-	std::cout << target << "has been pardonned by Zaphod Beevlebrox" << std::endl;
+		throw (GradeTooLowException());
+	std::cout << target << "has been pardonned by Zaphod Beeblebrox" << std::endl;
 }

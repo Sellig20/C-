@@ -5,6 +5,8 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
+class Form;
+
 class PresidentialPardonForm : public Form
 {
 	public :

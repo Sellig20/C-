@@ -1,13 +1,13 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name(""), grade(150)
+Bureaucrat::Bureaucrat() : name("Unknown"), grade(150)
 {
-    std::cout << "------Default BUREAUCRAT Constructor called------" << std::endl;
+    std::cout << "------Default BUREAUCRAT Constructor called--------------" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade): name(name)
 {
-    std::cout << "------Name & grade BUREAUCRAT Constructor called------" << std::endl;
+    std::cout << "------Name & grade BUREAUCRAT Constructor called---------" << std::endl;
     if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)
@@ -17,15 +17,13 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade): name(name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat &src) : name(src.name), grade(src.grade)
 {
-    std::cout << "------Copy BUREAUCRAT Constructor called------" << std::endl;
+    std::cout << "------Copy BUREAUCRAT Constructor called-----------------" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "------Default BUREAUCRAT Desstructor called------" << std::endl;
+    std::cout << "------Default BUREAUCRAT Desstructor called--------------" << std::endl;
 }
-
-////////////////////////////////
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
 {
@@ -60,15 +58,13 @@ void        Bureaucrat::decrementGrade()
 void        Bureaucrat::signForm(Form& f)
 {
     if (grade > f.getSignGrade())
-        std::cout << name << " couldn't sign" << f.getName() << " because his/her grade is too low" << std::endl;
+        std::cout << name << " couldn't sign " << f.getName() << " because his/her grade is too low" << std::endl;
     else if (f.getIsSigned() == true)
-        std::cout << name << " couldn't sign" << f.getName() << " because it is aready signed" << std::endl;
-
+        std::cout << name << " couldn't sign " << f.getName() << " because it is aready signed" << std::endl;
     else
     {
         f.beSigned(*(this));
-        std::cout << name << " signed" << f.getName() << std::endl;
-
+        std::cout << name << " signed " << f.getName() << std::endl;
     }
 }
 

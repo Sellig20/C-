@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	public :
@@ -18,7 +20,6 @@ class Form
 		std::string	getName() const;
 		bool getIsSigned() const;
 		int	getExecuteGrade() const;
-
 		virtual void	execute(Bureaucrat const &executor) = 0;
 
 	class GradeTooHighException : public std::exception
@@ -42,7 +43,7 @@ class Form
 		public :
 			const char *what() const throw()
 			{
-				return ("The form is not signed ");
+				return ("The form is not signed");
 			}
 	};
 	protected :

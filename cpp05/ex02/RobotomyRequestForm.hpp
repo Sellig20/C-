@@ -5,6 +5,8 @@
 #include <ctime>
 #include <cstdlib>
 
+class Form;
+
 class RobotomyRequestForm : public Form
 {
 	public :

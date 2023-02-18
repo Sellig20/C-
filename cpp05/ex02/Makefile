@@ -1,14 +1,16 @@
-NAME					=		form
+NAME					=		Presirobotree
 
 SRCS					=		main.cpp \
 								Bureaucrat.cpp \
 								Form.cpp \
-
+								PresidentialPardonForm.cpp \
+								RobotomyRequestForm.cpp \
+								ShrubberyCreationForm.cpp \
 
 OBJS		= ${SRCS:.cpp=.o}
 
 CC			= c++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -std=c++98 -g3
 RM			= rm -f
 
 all: 		${NAME}
