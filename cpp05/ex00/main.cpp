@@ -14,7 +14,7 @@ int main()
         std::cout << Addy << std::endl;
     }
     std::cout << std::endl;
-    std::cout << "------------- BUREAUCRATS TEST ------------" << std::endl;
+    std::cout << "------------- BUREAUCRATS MANDATORY TEST ------------" << std::endl;
     std::cout << std::endl;
     {
         Bureaucrat Roberta("Roberta", 2);
@@ -44,24 +44,21 @@ int main()
     {
         try
         {
-            //Tenk.incrementGrade();
             Bureaucrat Tenk("Tenk", 178);
+            // std::cout << Tenk.setGrade(Tenk.getGrade()) << std::endl;
         }
         catch(const std::exception& e)
         {
             std::cout << e.what() << std::endl;
         }
-        //std::cout << Tenk << std::endl;
         try
         {
-            //Doc.decrementGrade();
             Bureaucrat Doc("Doc", -4);
         }
         catch(const std::exception& e)
         {
             std::cout << e.what() << std::endl;
         }
-        //std::cout << Doc << std::endl;
     }
     std::cout << std::endl;
     std::cout << "------------- INVALID INCREMENTATIONS ------------" << std::endl;
@@ -69,7 +66,7 @@ int main()
     {
         Bureaucrat Tenk("Tenk", 150);
         Bureaucrat Doc("Doc", 1);
-        std::cout << "Before wrong decrementation : " << std::endl;
+        std::cout << "Before wrong decrementation : " << Tenk << std::endl;
         try
         {
             Tenk.decrementGrade();
@@ -79,7 +76,7 @@ int main()
             std::cout << e.what() << std::endl;
         }
         std::cout << "After wrong decrementation : " << Tenk << std::endl;
-        std::cout << "Before wrong decrementation : " << std::endl;
+        std::cout << "Before wrong decrementation : " << Doc << std::endl;
         try
         {
             Doc.incrementGrade();
@@ -92,3 +89,5 @@ int main()
     }
     return (0);
 }
+
+

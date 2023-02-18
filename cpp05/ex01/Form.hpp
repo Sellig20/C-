@@ -4,24 +4,26 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	public :
 		Form();
 		Form(const std::string &name, const int signGrade, const int executeGrade);
 		Form(const Form &src);
-		~Form();
+		virtual ~Form();
 		Form &operator=(const Form & src);
 
-		void	beSigned(Bureaucrat B);
-		int		getSignGrade();
-		std::string	getName();
-		bool getIsSigned();
+		void	beSigned(const Bureaucrat& B) ;
+		int		getSignGrade() const;
+		std::string	getName() const;
+		bool getIsSigned() const;
 
 	class GradeTooHighException : public std::exception
 	{
 		public :
-			virtual const char *what() const throw() // virtual pour beneficier les enfants de cette classe
+			const char *what() const throw() // virtual pour beneficier les enfants de cette classe
 			{
 				return ("The grade is too high ...");
 			}
@@ -29,7 +31,7 @@ class Form
 	class GradeTooLowException : public std::exception
 	{
 		public :
-			virtual const char *what() const throw()
+			const char *what() const throw()
 			{
 				return ("The grade is too low..." );
 			}

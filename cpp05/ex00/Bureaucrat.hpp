@@ -36,6 +36,22 @@ class Bureaucrat
                     return ("The grade is too low..." );             
                 }
         };
+        class ArgTooLowException : public std::exception
+        {
+            public :
+                virtual const char *what() const throw()
+                {
+                    return ("Impossible grade. Maximum is 150" );             
+                }
+        };
+        class ArgTooHighException : public std::exception
+        {
+            public :
+                virtual const char *what() const throw()
+                {
+                    return ("Impossible grade. Maximum is 1" );             
+                }
+        };
 
     private :
         const std::string name;

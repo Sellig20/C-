@@ -6,6 +6,7 @@
 
 #include "Form.hpp"
 
+class Form;
 
 class Bureaucrat
 {
@@ -37,6 +38,22 @@ class Bureaucrat
                 virtual const char *what() const throw()
                 {
                     return ("The grade is too low..." );
+                }
+        };
+        class ArgTooLowException : public std::exception
+        {
+            public :
+                virtual const char *what() const throw()
+                {
+                    return ("Impossible grade. Maximum is 150" );             
+                }
+        };
+        class ArgTooHighException : public std::exception
+        {
+            public :
+                virtual const char *what() const throw()
+                {
+                    return ("Impossible grade. Maximum is 1" );             
                 }
         };
 

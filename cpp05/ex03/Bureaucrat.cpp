@@ -18,6 +18,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade): name(name)
 Bureaucrat::Bureaucrat(const Bureaucrat &src) : name(src.name), grade(src.grade)
 {
     std::cout << "------Copy BUREAUCRAT Constructor called------" << std::endl;
+    (*this) = src; ///???????????????????
 }
 
 Bureaucrat::~Bureaucrat()
