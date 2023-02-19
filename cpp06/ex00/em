@@ -1,0 +1,170 @@
+
+
+
+bool	checkChar(std::string str)
+{
+	if (str.size() != 1)
+		return false;
+	if (!isprint(str[0]))
+	{
+		std::cerr << "Non displayable character" << std::endl;
+		return false;
+	}
+	if (isdigit(str[0]))
+		return false;
+	return true;
+}
+
+bool	checkInt(std::string str)
+{
+	for (int i = 0; str[i]; i++)
+	{
+		if (str[i] == '-' && i != 0)
+			return false;
+		if (!isdigit(str[i]) && str[i] != '-')
+			return false;
+	}
+	return true;
+}
+
+bool	checkFloat(std::string str)
+{
+	if (str == "-inff" || str == "+inff" || str == "nanf")
+		return true;
+	int point = 0;
+	for (int i = 0; str[i]; i++)
+	{
+		if (str[i] == '-' && i != 0)
+			return false;
+		if (!isdigit(str[i]) && str[i] != '-' && str[i] != '.' && str[i] != 'f')
+			return false;
+		if (str[i] == '.')
+			point++;
+		if (point > 1)
+			return false;
+	}
+	if (str.find("f", 0) == str.npos)
+		return false;
+	return true;
+}
+
+bool	checkDouble(std::string str)
+{
+	if (str == "-inf" || str == "+inf" || str == "nan")
+		return true;
+	int point = 0;
+	for (int i = 0; str[i]; i++)
+	{
+		if (str[i] == '-' && i != 0)
+			return false;
+		if (!isdigit(str[i]) && str[i] != '.' && str[i] != '-')
+			return false;
+		if (str[i] == '.')
+			point++;
+		if (point > 1)
+			return false;
+	}
+	return true;
+}
+
+bool	checkInput(std::string str, std::string *type)
+{
+	if (str.empty())
+	{
+		std::cerr << "Empty String." << std::endl;
+		return false;
+	}
+	if (checkChar(str))
+	{
+		*type = "char";
+		return true;
+	}
+	if (checkInt(str))
+	{
+		*type = "int";
+		return true;
+	}
+	if (checkFloat(str))
+	{
+		*type = "float";
+		return true;
+	}
+	if (checkDouble(str))
+	{
+		*type = "double";
+		return true;
+	}
+	return false;
+}
+
+void	displayChar(double r, std::string input, std::string type)
+{
+	std::cout << "char: ";
+	if (input == "nanf" || input == "nan" || input == "-inff" || input == "+inff" || input == "-inf" || input == "+inf")
+	{
+		std::cout << "impossible" << std::endl;
+		return;
+	}
+	if (type == "char")
+		std::cout << "'" << input << "'" << std::endl;
+	else if (isprint(static_cast<char>(r)))
+		std::cout << "'" << static_cast<char>(r) << "'" <<  std::endl;
+	else
+		std::cout << "Non displayable" << std::endl;
+}
+
+void	displayInt(double r, std::string input)
+{
+	std::cout << "int: ";
+	if (input == "nanf" || input == "nan" || input == "-inff" || input == "+inff" || input == "-inf" || input == "+inf")
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(r) << std::endl;
+}
+
+void	displayFloat(double r)
+{
+	std::cout << "float: ";
+	std::cout << static_cast<float>(r);
+	if (!fmod(r, static_cast<float>(1)))
+		std::cout << ".0f" << std::endl;
+	else
+		std::cout << "f" << std::endl;
+}
+
+void	displayDouble(double r)
+{
+	std::cout << "double : " << r;
+	if (!fmod(r, static_cast<float>(1)))
+		std::cout << ".0";
+	std::cout << std::endl;
+}
+
+void	convert(std::string input, std::string type)
+{
+	double r = atof(input.c_str());
+
+	displayChar(r, input, type);
+	displayInt(r, input);
+	displayFloat(r);
+	displayDouble(r);
+}
+
+int main(int ac, char **av)
+{
+	if (ac != 2)
+	{
+		std::cout << "Wrong nb of args" << std::endl;
+		return 1;
+	}
+	std::string type;
+	if (!checkInput(std::string(av[1]), &type))
+	{
+		std::cout << "Wrong type" << std::endl;
+		return 1;
+	}
+	convert(av[1], type);
+	return (0);
+}
+message.txt
+5 KB
