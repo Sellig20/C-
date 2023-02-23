@@ -3,11 +3,11 @@
 
 #include <iostream>
 
-
 template <typename variable>
 void swap(variable &a, variable &b)
 {
     variable tmp;
+
     tmp = a;
     a = b;
     b = tmp;

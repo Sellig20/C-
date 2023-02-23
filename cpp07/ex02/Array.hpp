@@ -23,14 +23,21 @@ class Array
         }
         Array(const Array &src)
         {
-            (*this) = src;
+            if (this != &src)
+            {
+                array = new T[src.getLen()];
+                for (int i = 0; i < src.getLen(); i++)
+                    array[i] = src.getInfos()[i];
+                len = src.getLen();
+            }
         }
         ~Array()
         {
-            delete array;
+            if (len > 0)
+                delete[] array;
         }
 
-        Array & operator=(const Array &src) 
+        Array & operator=(const Array &src)
         {
             array = new T[src.getLen()];
 
@@ -39,19 +46,19 @@ class Array
                 array[i] = src.getInfos()[i];
             return (*this);
         }
-        
+
         T & operator[](int n) const
         {
-            if (n > len)
+            if (n >= len || n < 0)
                 throw IndexOutOfBounds();
             return (array[n]);
         }
-        
+
         int size() const
         {
             return (len);
         }
-        
+
         T *getInfos() const
         {
             return (array);
@@ -64,7 +71,7 @@ class Array
         class IndexOutOfBounds : public std::exception
         {
             public :
-                virtual const char *what() const throw() // virtual pour beneficier les enfants de cette classe 
+                virtual const char *what() const throw() // virtual pour beneficier les enfants de cette classe
                 {
                    return ("Index out of bounds");
                 }
